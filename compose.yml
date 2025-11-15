@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner # specifies the final stage explicitly
+    image: my-nextjs-app:latest
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      # Add other environment variables here, or use the env_file below
+    env_file:
+      - .env # loads environment variables from a file at runtime
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    # Uncomment the next lines for volume-based local development
+    # volumes:
+    #   - .:/app
+    #   - /app/node_modules
+    # user: "1000:1000" # improves security if your container doesn't require root
+
+# Optional: Add named volumes for production persistence (e.g., for logs or uploads)
+# volumes:
+#   app_data:
+#     driver: local
+

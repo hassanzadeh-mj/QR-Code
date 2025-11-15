@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Enhanced Card Style */
+.card-enhanced {
+  border: 1px solid rgba(125, 185, 94, 0.1);
+  box-shadow: 0 4px 20px rgba(125, 185, 94, 0.08);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.card-enhanced:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(125, 185, 94, 0.15);
+  border-color: rgba(125, 185, 94, 0.2);
+}
+
+/* Enhanced Input Style */
+.input-enhanced input {
+  border: 2px solid rgba(125, 185, 94, 0.1);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.input-enhanced input:focus {
+  border-color: #7db95e;
+  box-shadow: 0 0 0 3px rgba(125, 185, 94, 0.1);
+}
+
+/* Enhanced Button Style */
+.btn-primary {
+  background: linear-gradient(135deg, #7db95e, #67a644);
+  border: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 15px rgba(125, 185, 94, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(125, 185, 94, 0.4);
+  background: linear-gradient(135deg, #8bc46a, #7db95e);
+}
+
+/* Hover Lift Effect */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(125, 185, 94, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(125, 185, 94, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(125, 185, 94, 0.5);
+}
+
+/* Animations */
+@keyframes logoGlow {
+  0% {
+    box-shadow: 0 4px 15px rgba(125, 185, 94, 0.3);
+  }
+  100% {
+    box-shadow: 0 4px 20px rgba(125, 185, 94, 0.5);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-enhanced {
+    margin: 0 8px;
+  }
+  
+  .btn-primary {
+    height: 50px;
+    font-size: 14px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+  }
+  
+  .card-enhanced {
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+}
