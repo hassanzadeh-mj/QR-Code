@@ -120,12 +120,7 @@ export default function RootLayout({
                 </Group>
               </Container>
             </AppShellHeader>
-            <AppShellMain
-              style={{
-                background: 'linear-gradient(135deg, #f8fffe 0%, #f0f9f5 100%)',
-                minHeight: 'calc(100vh - 80px)',
-              }}
-            >
+            <AppShellMain            >
               {children}
             </AppShellMain>
           </AppShell>
