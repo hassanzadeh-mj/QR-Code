@@ -1,6 +1,7 @@
 'use client';
 
-import { TextInput, PasswordInput, Stack } from '@mantine/core';
+import { TextInput, PasswordInput, Stack, Anchor, Box } from '@mantine/core';
+import Link from 'next/link';
 import type { LoginData } from '../types';
 import type { UseFormReturnType } from '@mantine/form';
 
@@ -18,12 +19,26 @@ export const LoginFields = ({ form }: LoginFieldsProps) => {
         required
         {...form.getInputProps('email')}
       />
-      <PasswordInput
-        label="Password"
-        placeholder="Enter your password"
-        required
-        {...form.getInputProps('password')}
-      />
+      <Box>
+        <PasswordInput
+          label="Password"
+          placeholder="Enter your password"
+          required
+          {...form.getInputProps('password')}
+        />
+        <Anchor
+          component={Link}
+          href="/reset-password"
+          size="sm"
+          style={{
+            marginTop: '8px',
+            display: 'block',
+            textAlign: 'right',
+          }}
+        >
+          Forgot password?
+        </Anchor>
+      </Box>
     </Stack>
   );
 };

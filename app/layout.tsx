@@ -8,7 +8,11 @@ import { AppShell, AppShellHeader, AppShellMain, Container, Group, Image, Title,
 import { ThemeToggle } from "./components/ThemeToggle";
 import { IconBrandGithub, IconShare } from '@tabler/icons-react';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',
+  fallback: ['system-ui', 'arial'],
+});
 
 export const metadata: Metadata = {
   title: "QR Code Generator",
